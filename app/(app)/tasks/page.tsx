@@ -1,4 +1,4 @@
-import { asc, desc, eq } from "drizzle-orm";
+import { and, asc, desc, eq, isNotNull, isNull } from "drizzle-orm";
 import Link from "next/link";
 import { connection } from "next/server";
 import { Suspense } from "react";
@@ -6,6 +6,7 @@ import { TaskForm } from "@/components/task-form";
 import { db } from "@/db";
 import { tasks } from "@/db/schema";
 import { formatShort, today } from "@/lib/date";
+import { formatRepeat, nextDate } from "@/lib/repeat";
 
 export default function TasksPage() {
   return (
@@ -21,10 +22,16 @@ export default function TasksPage() {
 async function Tasks() {
   await connection();
   const date = today();
-  const [pending, done] = await Promise.all([
-    db.select().from(tasks).where(eq(tasks.done, false)).orderBy(asc(tasks.dueDate), asc(tasks.id)),
+  const once = isNull(tasks.repeat);
+  const [pending, repeating, done] = await Promise.all([
+    db
+      .select()
+      .from(tasks)
+      .where(and(once, eq(tasks.done, false)))
+      .orderBy(asc(tasks.dueDate), asc(tasks.time), asc(tasks.id)),
+    db.select().from(tasks).where(isNotNull(tasks.repeat)).orderBy(asc(tasks.id)),
     // shortcut: solo las últimas 20 hechas; sumar paginado si hace falta ver más.
-    db.select().from(tasks).where(eq(tasks.done, true)).orderBy(desc(tasks.dueDate)).limit(20),
+    db.select().from(tasks).where(and(once, eq(tasks.done, true))).orderBy(desc(tasks.dueDate)).limit(20),
   ]);
 
   return (
@@ -34,6 +41,7 @@ async function Tasks() {
         <TaskForm today={date} />
       </section>
       <TaskList title="Pendientes" rows={pending} today={date} empty="No hay tareas pendientes." />
+      {repeating.length > 0 && <TaskList title="Se repiten" rows={repeating} today={date} />}
       {done.length > 0 && <TaskList title="Hechas" rows={done} today={date} />}
     </>
   );
@@ -48,13 +56,16 @@ function TaskList(props: { title: string; rows: (typeof tasks.$inferSelect)[]; t
       ) : (
         <ul className="border-t border-border">
           {props.rows.map((t) => {
-            const late = !t.done && t.dueDate < props.today;
+            const late = !t.done && !t.repeat && t.dueDate < props.today;
+            const next = t.repeat && t.repeatN ? nextDate({ ...t, repeat: t.repeat, repeatN: t.repeatN }, props.today) : t.dueDate;
             return (
               <li key={t.id} className="flex items-center gap-3 border-b border-border py-3">
                 <div className="min-w-0 flex-1">
                   <p className={`truncate font-semibold ${t.done ? "text-muted-foreground line-through" : ""}`}>{t.title}</p>
                   <p className={`mt-0.5 text-sm ${late ? "font-medium text-missed" : "text-muted-foreground"}`}>
-                    {t.dueDate === props.today ? "hoy" : formatShort(t.dueDate)}
+                    {t.repeat && t.repeatN && `${formatRepeat(t.repeat, t.repeatN)} · próxima: `}
+                    {next === props.today ? "hoy" : formatShort(next)}
+                    {t.time && ` · ${t.time.slice(0, 5)}`}
                     {late && " · vencida"}
                   </p>
                 </div>

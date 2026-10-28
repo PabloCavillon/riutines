@@ -25,7 +25,7 @@ export default function HabitsPage() {
 
 async function HabitList() {
   await connection();
-  const rows = await db.select().from(habits).orderBy(desc(habits.active), asc(habits.id));
+  const rows = await db.select().from(habits).orderBy(desc(habits.active), asc(habits.time), asc(habits.id));
   if (!rows.length) return <p className="py-6 text-muted-foreground">Todavía no cargaste hábitos.</p>;
 
   return (
@@ -39,6 +39,7 @@ async function HabitList() {
             </p>
             <p className="mt-0.5 text-sm text-muted-foreground">
               {h.weekdays ? formatWeekdays(h.weekdays) : "todos los días"}
+              {h.time && ` · ${h.time.slice(0, 5)}`}
               {!h.active && " · pausado"}
             </p>
           </div>

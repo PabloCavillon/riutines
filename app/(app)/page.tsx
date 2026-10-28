@@ -5,6 +5,7 @@ import { ItemRow } from "@/components/item-row";
 import { Tally } from "@/components/tally";
 import { getDay } from "@/db/queries";
 import { formatLong, formatWeekdays, today } from "@/lib/date";
+import { formatRepeat } from "@/lib/repeat";
 
 export default function TodayPage() {
   return (
@@ -71,6 +72,7 @@ async function Today() {
                     status={h.status}
                     name={h.name}
                     emoji={h.emoji}
+                    time={h.time}
                     streakBefore={h.streakBefore}
                     detail={h.weekdays ? formatWeekdays(h.weekdays) : undefined}
                   />
@@ -80,7 +82,16 @@ async function Today() {
             {tasks.length > 0 && (
               <Section title="Tareas de hoy">
                 {tasks.map((t) => (
-                  <ItemRow key={t.id} kind="task" id={t.id} date={date} status={t.status} name={t.title} />
+                  <ItemRow
+                    key={t.id}
+                    kind="task"
+                    id={t.id}
+                    date={date}
+                    status={t.status}
+                    name={t.title}
+                    time={t.time}
+                    detail={t.repeat && t.repeatN ? `todos los meses · ${formatRepeat(t.repeat, t.repeatN)}` : undefined}
+                  />
                 ))}
               </Section>
             )}

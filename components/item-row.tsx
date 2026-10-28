@@ -21,6 +21,7 @@ export function ItemRow(props: {
   status: Status | null;
   name: string;
   emoji?: string | null;
+  time?: string | null;
   // Hábitos: racha sin contar hoy, para que la marca optimista sume o corte al instante.
   streakBefore?: number;
   detail?: string;
@@ -41,16 +42,19 @@ export function ItemRow(props: {
     >
       <div className="min-w-0 flex-1">
         <p className="truncate font-semibold">
+          {props.time && <span className="mr-2 text-sm font-medium text-muted-foreground">{props.time.slice(0, 5)}</span>}
           {props.emoji && <span className="mr-1.5">{props.emoji}</span>}
           {props.name}
         </p>
-        {props.kind === "habit" && (
+        {props.kind === "habit" ? (
           <p className="mt-1 flex items-center gap-2 text-sm text-muted-foreground">
             <Tally count={streak} drawFrom={status === "done" ? before : undefined} className="h-3.5 text-malbec" />
             <span>{streak ? `${streak} ${streak === 1 ? "día" : "días"}` : "sin racha"}</span>
             {props.detail && <span aria-hidden>·</span>}
             {props.detail && <span>{props.detail}</span>}
           </p>
+        ) : (
+          props.detail && <p className="mt-1 text-sm text-muted-foreground">{props.detail}</p>
         )}
       </div>
       <form action={action} className="flex shrink-0 gap-1.5">

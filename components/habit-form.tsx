@@ -16,7 +16,14 @@ const DAYS = [
   { value: 0, short: "D", name: "domingo" },
 ];
 
-type Habit = { id: number; name: string; emoji: string | null; frequencyType: string; weekdays: number[] | null };
+type Habit = {
+  id: number;
+  name: string;
+  emoji: string | null;
+  time: string | null;
+  frequencyType: string;
+  weekdays: number[] | null;
+};
 
 export function HabitForm({ habit }: { habit?: Habit }) {
   const [error, action, pending] = useActionState(saveHabit, null);
@@ -33,7 +40,7 @@ export function HabitForm({ habit }: { habit?: Habit }) {
       className="grid gap-5"
     >
       {habit && <input type="hidden" name="id" value={habit.id} />}
-      <div className="grid grid-cols-[4.5rem_1fr] gap-3">
+      <div className="grid grid-cols-[4.5rem_1fr] gap-3 sm:grid-cols-[4.5rem_1fr_7rem]">
         <div className="grid gap-2">
           <Label htmlFor="emoji">Emoji</Label>
           <Input id="emoji" name="emoji" defaultValue={habit?.emoji ?? ""} maxLength={8} className="h-11 text-center text-lg" />
@@ -41,6 +48,10 @@ export function HabitForm({ habit }: { habit?: Habit }) {
         <div className="grid gap-2">
           <Label htmlFor="name">Nombre</Label>
           <Input id="name" name="name" defaultValue={habit?.name} required placeholder="Tomar 2 L de agua" className="h-11" />
+        </div>
+        <div className="col-span-2 grid max-w-40 gap-2 sm:col-span-1">
+          <Label htmlFor="time">Hora</Label>
+          <Input id="time" name="time" type="time" defaultValue={habit?.time?.slice(0, 5) ?? ""} className="h-11" />
         </div>
       </div>
 

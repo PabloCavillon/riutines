@@ -1,13 +1,15 @@
-import { and, asc, eq, isNotNull, or, sql } from "drizzle-orm";
+import { and, asc, eq, isNotNull, isNull, or, sql } from "drizzle-orm";
 import { db } from ".";
 import { today, weekday } from "@/lib/date";
+import { isTaskOn } from "@/lib/repeat";
 import { currentStreak } from "@/lib/streak";
 import { dailyLogs, habits, tasks } from "./schema";
 
 export type Status = (typeof dailyLogs.$inferInsert)["status"];
 export const STATUSES: Status[] = ["done", "missed", "skipped"];
 
-// Hábitos activos que tocan ese día (con su racha) + tareas que vencen ese día, cada uno con su estado (o null).
+// Hábitos activos que tocan ese día (con su racha) + tareas de ese día, cada uno con su estado (o null).
+// Ordenados por hora; los que no tienen hora van al final (asc deja los null al final en Postgres).
 export async function getDay(date: string) {
   const [habitRows, taskRows, logs, habitLogs] = await Promise.all([
     db
@@ -19,8 +21,12 @@ export async function getDay(date: string) {
           or(eq(habits.frequencyType, "daily"), sql`${weekday(date)} = any(${habits.weekdays})`),
         ),
       )
-      .orderBy(asc(habits.id)),
-    db.select().from(tasks).where(eq(tasks.dueDate, date)).orderBy(asc(tasks.id)),
+      .orderBy(asc(habits.time), asc(habits.id)),
+    db
+      .select()
+      .from(tasks)
+      .where(or(eq(tasks.dueDate, date), isNotNull(tasks.repeat)))
+      .orderBy(asc(tasks.time), asc(tasks.id)),
     db.select().from(dailyLogs).where(eq(dailyLogs.date, date)),
     // shortcut: trae todo el historial de hábitos para las rachas; alcanza para años de un solo usuario.
     db
@@ -44,7 +50,7 @@ export async function getDay(date: string) {
       const streakBefore = currentStreak(h, past, date, today(h.createdAt));
       return { ...h, status, streakBefore, streak: status === "done" ? streakBefore + 1 : status === "missed" ? 0 : streakBefore };
     }),
-    tasks: taskRows.map((t) => ({ ...t, status: taskStatus.get(t.id) ?? null })),
+    tasks: taskRows.filter((t) => isTaskOn(t, date)).map((t) => ({ ...t, status: taskStatus.get(t.id) ?? null })),
   };
 }
 
@@ -59,8 +65,12 @@ export async function setHabitStatus(habitId: number, date: string, status: Stat
 }
 
 // Único lugar que cambia el estado de una tarea: mantiene tasks.done y daily_logs en sync.
+// Las que se repiten no se cierran nunca: su estado vive solo en daily_logs.
 export async function setTaskStatus(taskId: number, date: string, status: Status | null) {
-  const done = db.update(tasks).set({ done: status === "done" }).where(eq(tasks.id, taskId));
+  const done = db
+    .update(tasks)
+    .set({ done: status === "done" })
+    .where(and(eq(tasks.id, taskId), isNull(tasks.repeat)));
   if (!status) {
     await db.batch([
       db.delete(dailyLogs).where(and(eq(dailyLogs.date, date), eq(dailyLogs.taskId, taskId))),

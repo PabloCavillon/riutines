@@ -7,12 +7,16 @@ import {
   pgEnum,
   pgTable,
   serial,
+  smallint,
   text,
+  time,
   timestamp,
   unique,
 } from "drizzle-orm/pg-core";
 
 export const frequencyType = pgEnum("frequency_type", ["daily", "weekdays"]);
+// Repetición mensual de tareas: el día N del mes o el N-ésimo día hábil; N < 0 cuenta desde el final.
+export const repeatType = pgEnum("repeat_type", ["month_day", "business_day"]);
 export const logStatus = pgEnum("log_status", ["done", "missed", "skipped"]);
 
 // Las fechas se guardan como string 'YYYY-MM-DD' (mode: "string") para que nunca haya conversión de zona horaria.
@@ -25,6 +29,7 @@ export const habits = pgTable(
     emoji: text("emoji"),
     frequencyType: frequencyType("frequency_type").notNull().default("daily"),
     weekdays: integer("weekdays").array(), // 0 = domingo … 6 = sábado; null si es diario
+    time: time("time"), // hora opcional, sin zona: es la hora de Mendoza
     active: boolean("active").notNull().default(true),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   },
@@ -36,13 +41,25 @@ export const habits = pgTable(
   ],
 );
 
-export const tasks = pgTable("tasks", {
-  id: serial("id").primaryKey(),
-  title: text("title").notNull(),
-  dueDate: date("due_date", { mode: "string" }).notNull(),
-  done: boolean("done").notNull().default(false),
-  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-});
+export const tasks = pgTable(
+  "tasks",
+  {
+    id: serial("id").primaryKey(),
+    title: text("title").notNull(),
+    dueDate: date("due_date", { mode: "string" }).notNull(), // si se repite: desde cuándo
+    time: time("time"),
+    repeat: repeatType("repeat"),
+    repeatN: smallint("repeat_n"),
+    done: boolean("done").notNull().default(false), // solo para las que no se repiten
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [
+    check(
+      "repeat_has_n",
+      sql`(${t.repeat} IS NULL AND ${t.repeatN} IS NULL) OR (${t.repeat} IS NOT NULL AND ${t.repeatN} IS NOT NULL AND ${t.repeatN} <> 0 AND ${t.repeatN} BETWEEN -31 AND 31)`,
+    ),
+  ],
+);
 
 export const dailyLogs = pgTable(
   "daily_logs",
