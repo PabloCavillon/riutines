@@ -1,0 +1,2 @@
+ALTER TABLE "habits" DROP CONSTRAINT "weekdays_match_frequency";--> statement-breakpoint
+ALTER TABLE "habits" ADD CONSTRAINT "weekdays_match_frequency" CHECK (("habits"."frequency_type" = 'daily' AND "habits"."weekdays" IS NULL) OR ("habits"."frequency_type" = 'weekdays' AND "habits"."weekdays" IS NOT NULL AND cardinality("habits"."weekdays") > 0 AND "habits"."weekdays" <@ '{0,1,2,3,4,5,6}'::int[]));

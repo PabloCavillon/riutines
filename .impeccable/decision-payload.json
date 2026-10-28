@@ -1,0 +1,112 @@
+{
+  "title": "Elegí el mundo visual de Rutina",
+  "question": "El sorteo asignó Vendimia: palotes de tiza. Quedátela, tomá una alternativa o volvé a tirar.",
+  "options": [
+    {
+      "id": "assigned",
+      "kind": "assigned",
+      "label": "Vendimia: palotes de tiza",
+      "kicker": "THE ROLL",
+      "lineage": "Bodegas mendocinas: cuentas a tiza en las barricas, etiquetas de malbec",
+      "thesis": "La constancia se cuenta como en la bodega: palotes de a cinco, a tiza, sobre malbec.",
+      "palette": ["#4A1530", "#F3F1F4", "#1E1418", "#4F7A28", "#C2412D", "#8C8590"],
+      "materials": ["tiza sobre barrica (solo en los palotes)", "color plano, sin sombras"],
+      "viewport": "Barra malbec con la fecha y la racha en palotes; abajo, la lista de hoy con tres botones por fila.",
+      "risk": "Si los palotes se usan como adorno y no como dato, queda temático.",
+      "raised": [
+        {"from": "challenger-ikeda", "raise": "Todos los números en cifras tabulares; el número es la tinta principal."},
+        {"from": "challenger-gateboard", "raise": "Una fila marcada mantiene su color en el lugar; la lista nunca se reordena sola."},
+        {"from": "challenger-zoo", "raise": "Color plano y sin grano: nada de gradientes ni sombras."},
+        {"from": "challenger-crouwel", "raise": "El heatmap y la semana reacomodan celdas enteras, nunca medias."},
+        {"from": "challenger-doujin", "raise": "El estado marcado se ve como una marca hecha a mano, no como un chip."}
+      ],
+      "html": ".impeccable/mocks/decision/assigned.html",
+      "htmlFrame": "390x844"
+    },
+    {
+      "id": "model-pick",
+      "kind": "pick",
+      "label": "Planilla de asistencia",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Registro de asistencia escolar argentino",
+      "thesis": "Cada hábito es un alumno y cada día una columna: presente, ausente, justificado.",
+      "palette": ["#FFFFFF", "#1F3A93", "#D3322B", "#1A1A1A"],
+      "materials": ["tinta de birome azul", "margen rojo"],
+      "viewport": "Fecha arriba; cada hábito con su tira L M M J V S D y la columna de hoy resaltada.",
+      "risk": "Es la dirección a la que llegan casi todas las apps de hábitos (grilla semanal); familiar.",
+      "html": ".impeccable/mocks/decision/model-pick.html",
+      "htmlFrame": "390x844"
+    },
+    {
+      "id": "challenger-metro",
+      "kind": "challenger",
+      "catalogId": "digital-design-canon-metro-typographic-tiles",
+      "label": "Tiles tipográficos",
+      "verdict": "competitive",
+      "lineage": "Interfaz metro: tiles planos y minúsculas gigantes",
+      "thesis": "Cada hábito es un tile; el día se lee en una palabra gigante cortada por el borde.",
+      "palette": ["#000000", "#00ABA9", "#A4C400", "#FFFFFF"],
+      "materials": ["tiles planos", "tipo como interfaz"],
+      "viewport": "'miércoles' gigante cortado a la derecha; tiles de hábitos que se inundan de color al marcarlos.",
+      "case": "Se fusiona bien: un hábito es un tile y marcarlo es inundarlo de color. Pierde en identificación: no es tu mundo.",
+      "risk": "Fondo negro todo el día y tiles grandes: menos densidad en desktop.",
+      "html": ".impeccable/mocks/decision/challenger-metro.html",
+      "htmlFrame": "390x844",
+      "hero": "https://impeccable.style/worlds/cards/digital-design-canon-metro-typographic-tiles-hero.webp"
+    },
+    {
+      "id": "challenger-ikeda", "kind": "challenger", "catalogId": "ikeda-datamatics",
+      "label": "Datamatics", "verdict": "declined", "lineage": "Campos de datos en blanco y negro",
+      "thesis": "La rutina como un campo de barras y números.", "palette": ["#000000", "#FFFFFF"],
+      "materials": ["barras de pelo", "monoespaciada"], "viewport": "Columnas de barras por día.",
+      "case": "Pierde en ambos ejes: frío para un uso diario y personal.", "risk": "Ilegible de un vistazo.",
+      "kept": "Cifras tabulares en todo número."
+    },
+    {
+      "id": "challenger-gateboard", "kind": "challenger", "catalogId": "vernacular-ephemera-boarding-pass-and-gate-board",
+      "label": "Tablero de embarque", "verdict": "declined", "lineage": "Boarding pass y tablero de partidas",
+      "thesis": "El día como tablero de partidas.", "palette": ["#111111", "#F2F2F2", "#FFB000"],
+      "materials": ["segmentos rotulados", "bloque escaneable"], "viewport": "Ítems ordenados por hora.",
+      "case": "Pierde en ambos: los hábitos no tienen horario.", "risk": "Ordenar por hora inventa datos.",
+      "kept": "Un cambio de estado mantiene su color en el lugar."
+    },
+    {
+      "id": "challenger-zoo", "kind": "challenger", "catalogId": "aww2-zoo-gardens-guide-map",
+      "label": "Mapa de zoológico", "verdict": "declined", "lineage": "Mapas-guía de zoológico",
+      "thesis": "Cada área de la app como un lóbulo de color.", "palette": ["#8ED462", "#F5F1E4", "#2C2E2A", "#FF705D"],
+      "materials": ["color plano", "costas en SVG"], "viewport": "Un lóbulo por pantalla.",
+      "case": "Pierde en ambos: no ayuda a marcar el día.", "risk": "Mucho movimiento para una tarea de segundos.",
+      "kept": "Color plano y sin grano."
+    },
+    {
+      "id": "challenger-crouwel", "kind": "challenger", "catalogId": "crouwel-grid-specimen",
+      "label": "Grilla Crouwel", "verdict": "declined", "lineage": "Especímenes tipográficos en grilla",
+      "thesis": "La grilla visible como estructura.", "palette": ["#FFFFFF", "#2B6CB0", "#E53E3E"],
+      "materials": ["grilla de construcción", "letras por celdas"], "viewport": "Fecha construida en celdas.",
+      "case": "Pierde en ambos: la grilla visible compite con la lista.", "risk": "Decorativo en celular.",
+      "kept": "Reacomodar por celdas enteras."
+    },
+    {
+      "id": "challenger-doujin", "kind": "challenger", "catalogId": "pop-culture-shelf-doujin-event-catalog",
+      "label": "Catálogo de convención", "verdict": "declined", "lineage": "Catálogos de ferias en papel diario",
+      "thesis": "Miles de celdas marcadas con birome.", "palette": ["#E9E6DF", "#111111", "#E4007F"],
+      "materials": ["papel diario", "una tinta"], "viewport": "Grilla densa de celdas.",
+      "case": "Pierde en ambos: densidad que no hace falta para 6 ítems.", "risk": "Ruido visual.",
+      "kept": "La marca hecha a mano como estado."
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "El estándar de la categoría",
+    "thesis": "Lo que hace cualquier app de hábitos, ejecutado impecable.",
+    "palette": ["#FFFFFF", "#18181B", "#2563EB"],
+    "materials": ["cards blancas", "checkbox redondos"],
+    "viewport": "Saludo, anillo de progreso y lista de cards con checkbox.",
+    "risk": "Indistinguible de cualquier otra app de hábitos.",
+    "html": ".impeccable/mocks/decision/canon.html",
+    "htmlFrame": "390x844"
+  },
+  "steer": true
+}

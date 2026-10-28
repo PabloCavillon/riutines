@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T15:00:05.044Z",
+  "title": "Design System: Rutina",
+  "extensions": {
+    "colorMeta": {
+      "malbec": {
+        "role": "primary",
+        "displayName": "Malbec",
+        "canonical": "oklch(29.2% 0.086 352)",
+        "tonalRamp": [
+          "oklch(15% 0.043 352)",
+          "oklch(26% 0.076 352)",
+          "oklch(38% 0.086 352)",
+          "oklch(49% 0.086 352)",
+          "oklch(61% 0.086 352)",
+          "oklch(72% 0.080 352)",
+          "oklch(84% 0.047 352)",
+          "oklch(95% 0.014 352)"
+        ]
+      },
+      "chalk": {
+        "role": "neutral",
+        "displayName": "Tiza",
+        "canonical": "oklch(96.1% 0.004 315)",
+        "tonalRamp": [
+          "oklch(15% 0.006 315)",
+          "oklch(26% 0.011 315)",
+          "oklch(38% 0.012 315)",
+          "oklch(49% 0.012 315)",
+          "oklch(61% 0.012 315)",
+          "oklch(72% 0.011 315)",
+          "oklch(84% 0.007 315)",
+          "oklch(95% 0.002 315)"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Gris lavanda",
+        "canonical": "oklch(96.1% 0.004 315)",
+        "tonalRamp": [
+          "oklch(15% 0.006 315)",
+          "oklch(26% 0.011 315)",
+          "oklch(38% 0.012 315)",
+          "oklch(49% 0.012 315)",
+          "oklch(61% 0.012 315)",
+          "oklch(72% 0.011 315)",
+          "oklch(84% 0.007 315)",
+          "oklch(95% 0.002 315)"
+        ]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Tinta de orujo",
+        "canonical": "oklch(20.6% 0.018 353)",
+        "tonalRamp": [
+          "oklch(15% 0.009 353)",
+          "oklch(26% 0.016 353)",
+          "oklch(38% 0.018 353)",
+          "oklch(49% 0.018 353)",
+          "oklch(61% 0.018 353)",
+          "oklch(72% 0.017 353)",
+          "oklch(84% 0.010 353)",
+          "oklch(95% 0.003 353)"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Blanco de control",
+        "canonical": "oklch(100.0% 0.000 90)",
+        "tonalRamp": [
+          "oklch(15% 0.006 90)",
+          "oklch(26% 0.011 90)",
+          "oklch(38% 0.012 90)",
+          "oklch(49% 0.012 90)",
+          "oklch(61% 0.012 90)",
+          "oklch(72% 0.011 90)",
+          "oklch(84% 0.007 90)",
+          "oklch(95% 0.002 90)"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Brezo",
+        "canonical": "oklch(90.5% 0.015 339)",
+        "tonalRamp": [
+          "oklch(15% 0.008 339)",
+          "oklch(26% 0.013 339)",
+          "oklch(38% 0.015 339)",
+          "oklch(49% 0.015 339)",
+          "oklch(61% 0.015 339)",
+          "oklch(72% 0.014 339)",
+          "oklch(84% 0.008 339)",
+          "oklch(95% 0.003 339)"
+        ]
+      },
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "Orujo gastado",
+        "canonical": "oklch(44.6% 0.025 338)",
+        "tonalRamp": [
+          "oklch(15% 0.013 338)",
+          "oklch(26% 0.022 338)",
+          "oklch(38% 0.025 338)",
+          "oklch(49% 0.025 338)",
+          "oklch(61% 0.025 338)",
+          "oklch(72% 0.023 338)",
+          "oklch(84% 0.014 338)",
+          "oklch(95% 0.004 338)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(88.6% 0.011 321)",
+        "tonalRamp": [
+          "oklch(15% 0.006 321)",
+          "oklch(26% 0.011 321)",
+          "oklch(38% 0.012 321)",
+          "oklch(49% 0.012 321)",
+          "oklch(61% 0.012 321)",
+          "oklch(72% 0.011 321)",
+          "oklch(84% 0.007 321)",
+          "oklch(95% 0.002 321)"
+        ]
+      },
+      "input": {
+        "role": "neutral",
+        "displayName": "Borde de control",
+        "canonical": "oklch(81.5% 0.017 329)",
+        "tonalRamp": [
+          "oklch(15% 0.008 329)",
+          "oklch(26% 0.015 329)",
+          "oklch(38% 0.017 329)",
+          "oklch(49% 0.017 329)",
+          "oklch(61% 0.017 329)",
+          "oklch(72% 0.015 329)",
+          "oklch(84% 0.009 329)",
+          "oklch(95% 0.003 329)"
+        ]
+      },
+      "done": {
+        "role": "tertiary",
+        "displayName": "Vid",
+        "canonical": "oklch(53.0% 0.122 133)",
+        "tonalRamp": [
+          "oklch(15% 0.061 133)",
+          "oklch(26% 0.107 133)",
+          "oklch(38% 0.122 133)",
+          "oklch(49% 0.122 133)",
+          "oklch(61% 0.122 133)",
+          "oklch(72% 0.113 133)",
+          "oklch(84% 0.067 133)",
+          "oklch(95% 0.020 133)"
+        ]
+      },
+      "done-row": {
+        "role": "tertiary",
+        "displayName": "Vid lavada",
+        "canonical": "oklch(94.5% 0.023 129)",
+        "tonalRamp": [
+          "oklch(15% 0.011 129)",
+          "oklch(26% 0.020 129)",
+          "oklch(38% 0.023 129)",
+          "oklch(49% 0.023 129)",
+          "oklch(61% 0.023 129)",
+          "oklch(72% 0.021 129)",
+          "oklch(84% 0.013 129)",
+          "oklch(95% 0.004 129)"
+        ]
+      },
+      "missed": {
+        "role": "tertiary",
+        "displayName": "Ladrillo",
+        "canonical": "oklch(52.0% 0.159 32)",
+        "tonalRamp": [
+          "oklch(15% 0.080 32)",
+          "oklch(26% 0.140 32)",
+          "oklch(38% 0.159 32)",
+          "oklch(49% 0.159 32)",
+          "oklch(61% 0.159 32)",
+          "oklch(72% 0.148 32)",
+          "oklch(84% 0.087 32)",
+          "oklch(95% 0.027 32)"
+        ]
+      },
+      "missed-row": {
+        "role": "tertiary",
+        "displayName": "Ladrillo lavado",
+        "canonical": "oklch(93.0% 0.022 32)",
+        "tonalRamp": [
+          "oklch(15% 0.011 32)",
+          "oklch(26% 0.019 32)",
+          "oklch(38% 0.022 32)",
+          "oklch(49% 0.022 32)",
+          "oklch(61% 0.022 32)",
+          "oklch(72% 0.020 32)",
+          "oklch(84% 0.012 32)",
+          "oklch(95% 0.004 32)"
+        ]
+      },
+      "skipped": {
+        "role": "tertiary",
+        "displayName": "Ceniza",
+        "canonical": "oklch(52.7% 0.019 314)",
+        "tonalRamp": [
+          "oklch(15% 0.009 314)",
+          "oklch(26% 0.017 314)",
+          "oklch(38% 0.019 314)",
+          "oklch(49% 0.019 314)",
+          "oklch(61% 0.019 314)",
+          "oklch(72% 0.018 314)",
+          "oklch(84% 0.010 314)",
+          "oklch(95% 0.003 314)"
+        ]
+      },
+      "skipped-row": {
+        "role": "tertiary",
+        "displayName": "Ceniza lavada",
+        "canonical": "oklch(93.2% 0.007 312)",
+        "tonalRamp": [
+          "oklch(15% 0.006 312)",
+          "oklch(26% 0.011 312)",
+          "oklch(38% 0.012 312)",
+          "oklch(49% 0.012 312)",
+          "oklch(61% 0.012 312)",
+          "oklch(72% 0.011 312)",
+          "oklch(84% 0.007 312)",
+          "oklch(95% 0.002 312)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "El día en la banda de Hoy y \"Rutina\" en el login. 2.25rem en celular, 3rem desde sm."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Cifras del día en la banda (hecho hoy, racha)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Título de página en Hábitos, Tareas y edición."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido y metadatos."
+      },
+      "body-strong": {
+        "displayName": "Body fuerte",
+        "purpose": "Nombre del ítem en cada fila."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Encabezados de lista, etiquetas de formulario y de cifras, botones."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "tally-draw",
+        "value": "320ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "El palote que se suma se dibuja una vez (stroke-dashoffset). Se apaga con prefers-reduced-motion."
+      },
+      {
+        "name": "row-tint",
+        "value": "background-color 300ms",
+        "purpose": "La fila toma el tono lavado del estado."
+      },
+      {
+        "name": "control-state",
+        "value": "color, background-color, border-color 150ms",
+        "purpose": "Hover y presionado de botones, nav y opciones."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Fila de estado",
+      "kind": "custom",
+      "refersTo": "status-button",
+      "description": "Fila de Hoy: nombre, palotes de racha y tres botones de 44px; la fila se tiñe con el estado.",
+      "html": "<ul class=\"ds-list\"><li class=\"ds-row ds-row-done\"><div class=\"ds-row-text\"><p class=\"ds-row-name\"><span>💧</span> Tomar agua</p><p class=\"ds-row-meta\"><span class=\"ds-row-tally\"><svg viewBox=\"-1 0 24 14\" style=\"height:20px;aspect-ratio:25/14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\"><path d=\"M2.4 1.5L1.6 12.5\"/><path d=\"M6.5 1.5L6.5 12.5\"/><path d=\"M11.4 1.5L10.6 12.5\"/><path d=\"M15.4 1.5L15.4 12.5\"/><path d=\"M0 11L17 3\"/></svg></span><span>5 días</span></p></div><div class=\"ds-status\"><button class=\"ds-status-btn ds-on-done\" aria-pressed=\"true\" aria-label=\"Hecho\"><svg viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3.8 13.2L9.1 18.4L21 3.6\"/></svg></button><button class=\"ds-status-btn\" aria-pressed=\"false\" aria-label=\"No hecho\"><svg viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.6 3.5L7.8 20.5M3.5 15.8L20.5 7.4\"/></svg></button><button class=\"ds-status-btn\" aria-pressed=\"false\" aria-label=\"Omitido\"><svg viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6.4 4.5L5.2 19.5M11.2 6.2L18.8 12.6L10.6 18.2\"/></svg></button></div></li></ul>",
+      "css": ".ds-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--border,#ddd7de);font-family:var(--font-archivo, Archivo), sans-serif;font-variant-numeric:tabular-nums;color:var(--foreground,#1e1418)} .ds-row{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border,#ddd7de);transition:background-color .3s} .ds-row-done{background:var(--done-row,#e8f0e0)} .ds-row-text{flex:1;min-width:0} .ds-row-name{margin:0;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .ds-row-meta{margin:4px 0 0;display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--muted-foreground,#5e4f59)} .ds-row-tally{color:var(--malbec,#4a1530);display:inline-flex} .ds-row-tally svg{height:14px} .ds-status{display:flex;gap:6px;flex-shrink:0} .ds-status-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:.4rem;border:1px solid var(--input,#c9bfc8);background:var(--card,#fff);color:var(--muted-foreground,#5e4f59);cursor:pointer;transition:color .15s,background-color .15s,border-color .15s} .ds-status-btn:hover{border-color:var(--malbec,#4a1530);color:var(--malbec,#4a1530)} .ds-status-btn:focus-visible{outline:2px solid var(--malbec,#4a1530);outline-offset:2px} .ds-on-done,.ds-on-done:hover{background:var(--done,#4f7a28);border-color:var(--done,#4f7a28);color:#fff}"
+    },
+    {
+      "name": "Banda malbec",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Encabezado de la app: palotes como marca, pestañas a tiza, pestaña activa invertida.",
+      "html": "<header class=\"ds-band\"><div class=\"ds-band-in\"><span class=\"ds-mark\"><svg viewBox=\"-1 0 24 14\" style=\"height:20px;aspect-ratio:25/14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\"><path d=\"M2.4 1.5L1.6 12.5\"/><path d=\"M6.5 1.5L6.5 12.5\"/><path d=\"M11.4 1.5L10.6 12.5\"/><path d=\"M15.4 1.5L15.4 12.5\"/><path d=\"M0 11L17 3\"/></svg><span>Rutina</span></span><nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link\" aria-current=\"page\">Hoy</a><a href=\"#\" class=\"ds-nav-link\">Hábitos</a><a href=\"#\" class=\"ds-nav-link\">Tareas</a></nav></div></header>",
+      "css": ".ds-band{background:var(--malbec,#4a1530);color:var(--chalk,#f3f1f4);font-family:var(--font-archivo, Archivo), sans-serif} .ds-band-in{display:flex;align-items:center;gap:16px;padding:12px 16px 0} .ds-mark{display:flex;align-items:center;gap:8px;font-weight:700;letter-spacing:-.025em;padding-left:8px} .ds-nav{display:flex;gap:4px} .ds-nav-link{display:flex;align-items:center;min-height:44px;padding:0 12px;border-radius:.4rem;font-size:.875rem;color:rgb(243 241 244 / .8);text-decoration:none;transition:background-color .15s,color .15s} .ds-nav-link:hover{background:rgb(243 241 244 / .1);color:var(--chalk,#f3f1f4)} .ds-nav-link:focus-visible{outline:2px solid var(--chalk,#f3f1f4)} .ds-nav-link[aria-current=page]{background:var(--chalk,#f3f1f4);color:var(--malbec,#4a1530);font-weight:600}"
+    },
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Un envío por formulario: malbec con texto tiza.",
+      "html": "<button class=\"ds-btn-primary\">Agregar hábito</button>",
+      "css": ".ds-btn-primary{height:44px;padding:0 20px;border:1px solid transparent;border-radius:.5rem;background:var(--malbec,#4a1530);color:var(--chalk,#f3f1f4);font:500 .875rem var(--font-archivo, Archivo), sans-serif;cursor:pointer;transition:background-color .15s} .ds-btn-primary:hover{background:rgb(74 21 48 / .8)} .ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 3px rgb(74 21 48 / .5)} .ds-btn-primary:active{transform:translateY(1px)}"
+    },
+    {
+      "name": "Botón discreto",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Acción de fila (Editar, Pausar): texto malbec, fondo brezo en hover.",
+      "html": "<button class=\"ds-btn-quiet\">Editar</button>",
+      "css": ".ds-btn-quiet{height:40px;padding:0 12px;border:0;border-radius:.4rem;background:transparent;color:var(--malbec,#4a1530);font:500 .875rem var(--font-archivo, Archivo), sans-serif;cursor:pointer;transition:background-color .15s} .ds-btn-quiet:hover{background:var(--secondary,#e7dce3)} .ds-btn-quiet:focus-visible{outline:2px solid var(--malbec,#4a1530)}"
+    },
+    {
+      "name": "Campo",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Input de formulario con etiqueta arriba.",
+      "html": "<label class=\"ds-field\"><span>Nombre</span><input class=\"ds-input\" placeholder=\"Tomar 2 L de agua\"></label>",
+      "css": ".ds-field{display:grid;gap:8px;font:500 .875rem var(--font-archivo, Archivo), sans-serif;color:var(--foreground,#1e1418)} .ds-input{height:44px;padding:4px 10px;border:1px solid var(--input,#c9bfc8);border-radius:.5rem;background:transparent;font:400 .875rem var(--font-archivo, Archivo), sans-serif;color:var(--foreground,#1e1418);outline:none;transition:border-color .15s,box-shadow .15s} .ds-input::placeholder{color:var(--muted-foreground,#5e4f59)} .ds-input:focus-visible{border-color:var(--malbec,#4a1530);box-shadow:0 0 0 3px rgb(74 21 48 / .5)}"
+    },
+    {
+      "name": "Opción de frecuencia",
+      "kind": "chip",
+      "refersTo": "choice",
+      "description": "Radio oculto dentro de un label de 44px; la elegida toma brezo y malbec.",
+      "html": "<div class=\"ds-choices\"><label class=\"ds-choice\"><input type=\"radio\" name=\"f\" checked>Todos los días</label><label class=\"ds-choice\"><input type=\"radio\" name=\"f\">Algunos días</label></div>",
+      "css": ".ds-choices{display:flex;flex-wrap:wrap;gap:8px} .ds-choice{display:flex;align-items:center;height:44px;padding:0 16px;border:1px solid var(--input,#c9bfc8);border-radius:.4rem;background:var(--card,#fff);font:400 .875rem var(--font-archivo, Archivo), sans-serif;color:var(--foreground,#1e1418);cursor:pointer} .ds-choice input{position:absolute;opacity:0;width:1px;height:1px} .ds-choice:has(input:checked){border-color:var(--malbec,#4a1530);background:var(--secondary,#e7dce3);color:var(--malbec,#4a1530);font-weight:600} .ds-choice:has(input:focus-visible){outline:2px solid var(--malbec,#4a1530)}"
+    },
+    {
+      "name": "Día de la semana",
+      "kind": "chip",
+      "refersTo": "choice",
+      "description": "Cuadrado de 44px con la inicial; elegido se rellena en malbec.",
+      "html": "<div class=\"ds-days\"><label class=\"ds-day\"><input type=\"checkbox\" checked aria-label=\"lunes\"><span>L</span></label><label class=\"ds-day\"><input type=\"checkbox\" aria-label=\"martes\"><span>M</span></label><label class=\"ds-day\"><input type=\"checkbox\" checked aria-label=\"miércoles\"><span>M</span></label></div>",
+      "css": ".ds-days{display:flex;gap:6px} .ds-day{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--input,#c9bfc8);border-radius:.4rem;background:var(--card,#fff);font:600 .875rem var(--font-archivo, Archivo), sans-serif;color:var(--muted-foreground,#5e4f59);cursor:pointer} .ds-day input{position:absolute;opacity:0;width:1px;height:1px} .ds-day:has(input:checked){border-color:var(--malbec,#4a1530);background:var(--malbec,#4a1530);color:var(--chalk,#f3f1f4)} .ds-day:has(input:focus-visible){outline:2px solid var(--malbec,#4a1530);outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La pizarra de la bodega",
+    "overview": "La constancia se cuenta como en la bodega: palotes de a cinco, a tiza, sobre malbec. Arriba de cada pantalla de la app hay una banda malbec donde la tiza es la tinta: marca, navegación, la fecha grande y la racha. Abajo, sobre un gris lavanda claro, una lista plana separada por hairlines, donde cada fila toma el color del estado que se le marcó y se queda ahí, sin moverse.\n\nEl sistema es de color plano: sin sombras, sin gradientes, sin grano, sin modo oscuro. La profundidad la da el contraste entre la banda malbec y la hoja clara, y las filas teñidas. La única gráfica es el trazo: los palotes y las tres marcas de estado se dibujan con el mismo trazo redondeado, levemente torcido, como hecho a mano. Las cifras son tabulares en todo el producto.\n\nRechaza explícitamente la app de hábitos estándar: cards blancas flotando, checkbox redondo, anillo de progreso, llamita de racha.",
+    "keyCharacteristics": [
+      "Banda malbec con tinta de tiza arriba; hoja gris lavanda abajo.",
+      "Lista plana a hairlines; la fila marcada se tiñe y no se reordena.",
+      "Palotes de a cinco como única unidad gráfica de constancia.",
+      "Tres botones cuadrados de 44px por fila: hecho, no hecho, omitido.",
+      "Archivo en una sola familia, cifras tabulares siempre."
+    ],
+    "rules": [
+      {
+        "name": "The Fila Pintada Rule",
+        "body": "El estado se comunica pintando la fila entera con su tono lavado y el botón presionado con su tono pleno, con texto blanco. La fila no se reordena ni se mueve al marcarse.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tiza Sobre Malbec Rule",
+        "body": "Sobre la banda malbec solo hay tiza; la jerarquía se hace con opacidad de tiza (100 / 80 / 70%), no con colores nuevos.",
+        "section": "colors"
+      },
+      {
+        "name": "The Cifra Tabular Rule",
+        "body": "Todo número que se compare (conteos, rachas, fechas) va en cifras tabulares; ya lo hereda el `body`, no se apaga.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sin Sombras Rule",
+        "body": "Nada flota. Si algo necesita separarse, lleva una hairline o un cambio de plano de color.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** poner la banda malbec arriba de toda pantalla de la app, con la tiza como única tinta.",
+      "**Do** contar rachas con palotes de a cinco y la cifra al lado.",
+      "**Do** separar con hairlines `border` de 1px y dejar las listas planas.",
+      "**Do** teñir la fila entera con `done-row`, `missed-row` o `skipped-row` y mantenerla en su lugar.",
+      "**Do** dar 44px a todo control táctil.",
+      "**Do** marcar foco con contorno de 2px malbec (tiza sobre la banda)."
+    ],
+    "donts": [
+      "**Don't** usar sombras, gradientes ni grano.",
+      "**Don't** usar cards blancas, checkbox redondo, anillo de progreso ni llamita de racha.",
+      "**Don't** reordenar la lista cuando se marca un ítem.",
+      "**Don't** introducir colores nuevos sobre la banda malbec; la jerarquía va con opacidad de tiza.",
+      "**Don't** apagar las cifras tabulares.",
+      "**Don't** agregar un tema oscuro; el sistema es solo claro."
+    ]
+  }
+}

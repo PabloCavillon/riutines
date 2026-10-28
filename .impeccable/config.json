@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-metro.html"
+        ],
+        "createdAt": "2026-10-28T15:00:54.230Z",
+        "reason": "decision-round sketch of an unchosen direction (metro tiles); not shipped code"
+      }
+    ]
+  }
+}

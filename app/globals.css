@@ -1,26 +1,102 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-archivo);
+  --font-heading: var(--font-archivo);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-malbec: var(--malbec);
+  --color-chalk: var(--chalk);
+  --color-done: var(--done);
+  --color-done-row: var(--done-row);
+  --color-missed: var(--missed);
+  --color-missed-row: var(--missed-row);
+  --color-skipped: var(--skipped);
+  --color-skipped-row: var(--skipped-row);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Vendimia: malbec + tiza. Color plano, sin sombras ni gradientes. Solo tema claro. */
+:root {
+  --malbec: #4a1530;
+  --chalk: #f3f1f4;
+  --background: #f3f1f4;
+  --foreground: #1e1418;
+  --card: #ffffff;
+  --card-foreground: #1e1418;
+  --primary: #4a1530;
+  --primary-foreground: #f3f1f4;
+  --secondary: #e7dce3;
+  --secondary-foreground: #4a1530;
+  --muted: #e7dce3;
+  --muted-foreground: #5e4f59;
+  --accent: #e7dce3;
+  --accent-foreground: #4a1530;
+  --destructive: #b23a26;
+  --border: #ddd7de;
+  --input: #c9bfc8;
+  --ring: #4a1530;
+  --radius: 0.5rem;
+
+  --done: #4f7a28;
+  --done-row: #e8f0e0;
+  --missed: #b23a26;
+  --missed-row: #f6e3df;
+  --skipped: #6f6873;
+  --skipped-row: #eae7ec;
+}
+
+/* El palote que se suma se dibuja una vez, con salida exponencial. */
+@keyframes tally-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+.tally-draw {
+  stroke-dasharray: 1;
+  animation: tally-draw 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tally-draw {
+    animation: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    color-scheme: light;
+    accent-color: var(--malbec);
+    caret-color: var(--malbec);
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-variant-numeric: tabular-nums;
+  }
+  ::selection {
+    background: var(--malbec);
+    color: var(--chalk);
+  }
 }
