@@ -5,7 +5,7 @@ import { ItemRow } from "@/components/item-row";
 import { Tally } from "@/components/tally";
 import { getDay } from "@/db/queries";
 import { formatLong, formatWeekdays, today } from "@/lib/date";
-import { formatRepeat } from "@/lib/repeat";
+import { formatRepeat, ruleOf } from "@/lib/repeat";
 
 export default function TodayPage() {
   return (
@@ -90,7 +90,7 @@ async function Today() {
                     status={t.status}
                     name={t.title}
                     time={t.time}
-                    detail={t.repeat && t.repeatN ? `todos los meses · ${formatRepeat(t.repeat, t.repeatN)}` : undefined}
+                    detail={ruleOf(t) ? formatRepeat(ruleOf(t)!) : undefined}
                   />
                 ))}
               </Section>

@@ -6,7 +6,7 @@ import { TaskForm } from "@/components/task-form";
 import { db } from "@/db";
 import { tasks } from "@/db/schema";
 import { formatShort, today } from "@/lib/date";
-import { formatRepeat, nextDate } from "@/lib/repeat";
+import { formatRepeat, nextDate, ruleOf } from "@/lib/repeat";
 
 export default function TasksPage() {
   return (
@@ -57,13 +57,14 @@ function TaskList(props: { title: string; rows: (typeof tasks.$inferSelect)[]; t
         <ul className="border-t border-border">
           {props.rows.map((t) => {
             const late = !t.done && !t.repeat && t.dueDate < props.today;
-            const next = t.repeat && t.repeatN ? nextDate({ ...t, repeat: t.repeat, repeatN: t.repeatN }, props.today) : t.dueDate;
+            const rule = ruleOf(t);
+            const next = rule ? nextDate(t.dueDate, rule, props.today) : t.dueDate;
             return (
               <li key={t.id} className="flex items-center gap-3 border-b border-border py-3">
                 <div className="min-w-0 flex-1">
                   <p className={`truncate font-semibold ${t.done ? "text-muted-foreground line-through" : ""}`}>{t.title}</p>
                   <p className={`mt-0.5 text-sm ${late ? "font-medium text-missed" : "text-muted-foreground"}`}>
-                    {t.repeat && t.repeatN && `${formatRepeat(t.repeat, t.repeatN)} · próxima: `}
+                    {rule && `${formatRepeat(rule)} · próxima: `}
                     {next === props.today ? "hoy" : formatShort(next)}
                     {t.time && ` · ${t.time.slice(0, 5)}`}
                     {late && " · vencida"}

@@ -29,6 +29,20 @@
       "when": 1793205732358,
       "tag": "0003_striped_maestro",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793240003805,
+      "tag": "0004_lively_hiroim",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1793240696752,
+      "tag": "0005_sticky_hedge_knight",
+      "breakpoints": true
     }
   ]
 }

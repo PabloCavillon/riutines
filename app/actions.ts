@@ -8,7 +8,7 @@ import { db } from "@/db";
 import { setHabitStatus, setTaskStatus, STATUSES, type Status } from "@/db/queries";
 import { habits, tasks } from "@/db/schema";
 import { isDate } from "@/lib/date";
-import type { Repeat } from "@/lib/repeat";
+import { parseRepeat, parseTime } from "@/lib/parse";
 import { createSession, isValidPassword, SESSION_COOKIE, SESSION_DAYS } from "@/lib/session";
 
 // Las actions son endpoints públicos: se valida todo lo que llega, aunque el proxy ya exige sesión.
@@ -28,14 +28,6 @@ export async function login(_: string | null, form: FormData) {
 export async function logout() {
   (await cookies()).delete(SESSION_COOKIE);
   redirect("/login");
-}
-
-// Hora opcional "HH:MM"; vacío es sin hora.
-function parseTime(form: FormData) {
-  const time = String(form.get("time") ?? "");
-  if (!time) return { value: null };
-  if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(time)) return { error: "La hora no es válida." };
-  return { value: time };
 }
 
 function parseHabit(form: FormData) {
@@ -82,16 +74,6 @@ export async function setHabitActive(form: FormData) {
 export async function deleteHabit(form: FormData) {
   await db.delete(habits).where(eq(habits.id, parseId(form.get("id"))));
   redirect("/habits");
-}
-
-// Sin repetir, o todos los meses el día N / N-ésimo hábil (negativo si cuenta desde el final).
-function parseRepeat(form: FormData) {
-  const repeat = form.get("repeat") as Repeat;
-  if (repeat !== "month_day" && repeat !== "business_day") return { value: { repeat: null, repeatN: null } };
-  const n = Number(form.get("repeatN"));
-  const max = repeat === "business_day" ? 23 : 31; // un mes tiene como mucho 23 días hábiles
-  if (!Number.isInteger(n) || n < 1 || n > max) return { error: `Elegí un número del 1 al ${max}.` };
-  return { value: { repeat, repeatN: form.get("repeatFrom") === "end" ? -n : n } };
 }
 
 export async function saveTask(_: string | null, form: FormData) {

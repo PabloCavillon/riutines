@@ -1,0 +1,2 @@
+ALTER TABLE "tasks" ADD COLUMN "repeat_every" smallint DEFAULT 1 NOT NULL;--> statement-breakpoint
+ALTER TABLE "tasks" ADD CONSTRAINT "repeat_every_range" CHECK ("tasks"."repeat_every" BETWEEN 1 AND 12);

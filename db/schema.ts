@@ -15,8 +15,9 @@ import {
 } from "drizzle-orm/pg-core";
 
 export const frequencyType = pgEnum("frequency_type", ["daily", "weekdays"]);
-// Repetición mensual de tareas: el día N del mes o el N-ésimo día hábil; N < 0 cuenta desde el final.
-export const repeatType = pgEnum("repeat_type", ["month_day", "business_day"]);
+// Repetición mensual de tareas: el día N del mes, el N-ésimo día hábil o el N-ésimo lunes/martes/…;
+// N < 0 cuenta desde el final.
+export const repeatType = pgEnum("repeat_type", ["month_day", "business_day", "weekday"]);
 export const logStatus = pgEnum("log_status", ["done", "missed", "skipped"]);
 
 // Las fechas se guardan como string 'YYYY-MM-DD' (mode: "string") para que nunca haya conversión de zona horaria.
@@ -50,6 +51,8 @@ export const tasks = pgTable(
     time: time("time"),
     repeat: repeatType("repeat"),
     repeatN: smallint("repeat_n"),
+    repeatWeekday: smallint("repeat_weekday"), // 0 = domingo … 6 = sábado; solo si repeat = weekday
+    repeatEvery: smallint("repeat_every").notNull().default(1), // cada cuántos meses, contando desde el mes de dueDate
     done: boolean("done").notNull().default(false), // solo para las que no se repiten
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   },
@@ -57,6 +60,12 @@ export const tasks = pgTable(
     check(
       "repeat_has_n",
       sql`(${t.repeat} IS NULL AND ${t.repeatN} IS NULL) OR (${t.repeat} IS NOT NULL AND ${t.repeatN} IS NOT NULL AND ${t.repeatN} <> 0 AND ${t.repeatN} BETWEEN -31 AND 31)`,
+    ),
+    // ::text porque Postgres no deja usar un valor de enum nuevo en la misma migración que lo agrega.
+    check("repeat_every_range", sql`${t.repeatEvery} BETWEEN 1 AND 12`),
+    check(
+      "repeat_weekday_match",
+      sql`(coalesce(${t.repeat}::text, '') = 'weekday') = (${t.repeatWeekday} IS NOT NULL) AND ${t.repeatWeekday} BETWEEN 0 AND 6`,
     ),
   ],
 );
